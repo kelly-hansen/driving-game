@@ -5,12 +5,14 @@
 body {
   margin: 0;
   background-color: #288d26;
+  overflow: hidden;
 }
 
 img {
   width: 10rem;
   position: absolute;
   transition: transform 0.25s;
+  overflow: hidden;
 }
 
 .east {
