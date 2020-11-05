@@ -21,6 +21,11 @@ function changeDirection(e) {
   $car.className = data.direction;
 }
 
+function carMovement() {
+  data.location.x = data.location.x + 8;
+  $car.setAttribute('style', 'left:' + (data.location.x) + 'px;');
+}
+
 var carMovingInterval;
 
 function startCar() {
@@ -28,7 +33,7 @@ function startCar() {
   carMovingInterval = setInterval(carMovement, 16);
 }
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
   if (e.code === 'Space') {
     startCar();
   } else {
