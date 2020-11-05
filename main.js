@@ -8,7 +8,7 @@ var data = {
 
 var $car = document.querySelector('img');
 
-document.addEventListener('keydown', function (e) {
+function changeDirection(e) {
   if (e.code === 'ArrowUp') {
     data.direction = 'north';
   } else if (e.code === 'ArrowRight') {
@@ -19,4 +19,19 @@ document.addEventListener('keydown', function (e) {
     data.direction = 'west';
   }
   $car.className = data.direction;
+}
+
+var carMovingInterval;
+
+function startCar() {
+  clearInterval(carMovingInterval);
+  carMovingInterval = setInterval(carMovement, 16);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.code === 'Space') {
+    startCar();
+  } else {
+    changeDirection(e);
+  }
 });
