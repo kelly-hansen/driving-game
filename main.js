@@ -23,8 +23,16 @@ function changeDirection(e) {
 }
 
 function carMovement() {
-  data.location.x = data.location.x + 8;
-  $car.setAttribute('style', 'left:' + (data.location.x) + 'px;');
+  if (data.direction === 'north') {
+    data.location.y = data.location.y - 8;
+  } else if (data.direction === 'east') {
+    data.location.x = data.location.x + 8;
+  } else if (data.direction === 'south') {
+    data.location.y = data.location.y + 8;
+  } else if (data.direction === 'west') {
+    data.location.x = data.location.x - 8;
+  }
+  $car.setAttribute('style', 'left: ' + data.location.x + 'px; top: ' + data.location.y + 'px;');
 }
 
 var carMovingInterval;
