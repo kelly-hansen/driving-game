@@ -1,5 +1,9 @@
 var data = {
-  direction: 'east'
+  direction: 'east',
+  location: {
+    x: 0,
+    y: 0
+  }
 };
 
 var $car = document.querySelector('img');
