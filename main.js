@@ -1,13 +1,21 @@
+var data = {
+  direction: 'east'
+};
+
 var $car = document.querySelector('img');
 
 document.addEventListener('keydown', function (e) {
   if (e.code === 'ArrowUp') {
-    $car.className = 'up';
+    $car.className = 'north';
+    data.direction = 'north';
   } else if (e.code === 'ArrowRight') {
-    $car.className = 'right';
+    $car.className = 'east';
+    data.direction = 'east';
   } else if (e.code === 'ArrowDown') {
-    $car.className = 'down';
+    $car.className = 'south';
+    data.direction = 'south';
   } else if (e.code === 'ArrowLeft') {
-    $car.className = 'left';
+    $car.className = 'west';
+    data.direction = 'west';
   }
 });

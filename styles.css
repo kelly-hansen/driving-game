@@ -13,18 +13,18 @@ img {
   transition: transform 0.25s;
 }
 
-.right {
+.east {
   transform: rotate(0deg);
 }
 
-.down {
+.south {
   transform: rotate(90deg);
 }
 
-.left {
+.west {
   transform: rotate(180deg);
 }
 
-.up {
+.north {
   transform: rotate(270deg);
 }
