@@ -3,7 +3,8 @@ var data = {
   location: {
     x: 0,
     y: 0
-  }
+  },
+  moving: false
 };
 
 var $car = document.querySelector('img');
@@ -28,14 +29,19 @@ function carMovement() {
 
 var carMovingInterval;
 
-function startCar() {
+function startStopCar() {
   clearInterval(carMovingInterval);
-  carMovingInterval = setInterval(carMovement, 16);
+  if (!data.moving) {
+    carMovingInterval = setInterval(carMovement, 16);
+    data.moving = true;
+  } else {
+    data.moving = false;
+  }
 }
 
 document.addEventListener('keydown', function (e) {
   if (e.code === 'Space') {
-    startCar();
+    startStopCar();
   } else {
     changeDirection(e);
   }
