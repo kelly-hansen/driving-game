@@ -1,5 +1,5 @@
 var data = {
-  direction: 2, // north = 1, east = 2, south = 3, west = 4
+  direction: 3, // N = 1, NE = 2, E = 3, SE = 4, S = 5, SW = 6, W = 7, NW = 8
   degrees: 0,
   location: {
     x: 0,
@@ -13,18 +13,18 @@ var $car = document.querySelector('img');
 function changeDirection(e) {
   var newDirection;
   if (e.code === 'ArrowRight') {
-    data.degrees += 90;
+    data.degrees += 45;
     newDirection = data.direction + 1;
   } else if (e.code === 'ArrowLeft') {
-    data.degrees -= 90;
+    data.degrees -= 45;
     newDirection = data.direction - 1;
   } else {
     return;
   }
-  if (newDirection === 5) {
+  if (newDirection === 9) {
     data.direction = 1;
   } else if (newDirection === 0) {
-    data.direction = 4;
+    data.direction = 8;
   } else {
     data.direction = newDirection;
   }
@@ -35,11 +35,23 @@ function carMovement() {
   if (data.direction === 1) {
     data.location.y = data.location.y - 8;
   } else if (data.direction === 2) {
-    data.location.x = data.location.x + 8;
+    data.location.x = data.location.x + 4;
+    data.location.y = data.location.y - 4;
   } else if (data.direction === 3) {
-    data.location.y = data.location.y + 8;
+    data.location.x = data.location.x + 8;
   } else if (data.direction === 4) {
+    data.location.x = data.location.x + 4;
+    data.location.y = data.location.y + 4;
+  } else if (data.direction === 5) {
+    data.location.y = data.location.y + 8;
+  } else if (data.direction === 6) {
+    data.location.x = data.location.x - 4;
+    data.location.y = data.location.y + 4;
+  } else if (data.direction === 7) {
     data.location.x = data.location.x - 8;
+  } else if (data.direction === 8) {
+    data.location.x = data.location.x - 4;
+    data.location.y = data.location.y - 4;
   }
   $car.setAttribute('style', 'left: ' + data.location.x + 'px; top: ' + data.location.y + 'px; transform: rotate(' + data.degrees + 'deg);');
 }
