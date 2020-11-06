@@ -2,8 +2,8 @@ var data = {
   direction: 3, // N = 1, NE = 2, E = 3, SE = 4, S = 5, SW = 6, W = 7, NW = 8
   degrees: 0,
   location: {
-    x: 0,
-    y: 0
+    x: 53,
+    y: 45
   },
   moving: false
 };
@@ -28,32 +28,32 @@ function changeDirection(e) {
   } else {
     data.direction = newDirection;
   }
-  $car.setAttribute('style', 'left: ' + data.location.x + 'px; top: ' + data.location.y + 'px; transform: rotate(' + data.degrees + 'deg);');
+  $car.setAttribute('style', 'left: ' + data.location.x + 'rem; top: ' + data.location.y + 'rem; transform: rotate(' + data.degrees + 'deg);');
 }
 
 function carMovement() {
   if (data.direction === 1) {
-    data.location.y = data.location.y - 8;
+    data.location.y = data.location.y - 0.8;
   } else if (data.direction === 2) {
-    data.location.x = data.location.x + 4;
-    data.location.y = data.location.y - 4;
+    data.location.x = data.location.x + 0.4;
+    data.location.y = data.location.y - 0.4;
   } else if (data.direction === 3) {
-    data.location.x = data.location.x + 8;
+    data.location.x = data.location.x + 0.8;
   } else if (data.direction === 4) {
-    data.location.x = data.location.x + 4;
-    data.location.y = data.location.y + 4;
+    data.location.x = data.location.x + 0.4;
+    data.location.y = data.location.y + 0.4;
   } else if (data.direction === 5) {
-    data.location.y = data.location.y + 8;
+    data.location.y = data.location.y + 0.8;
   } else if (data.direction === 6) {
-    data.location.x = data.location.x - 4;
-    data.location.y = data.location.y + 4;
+    data.location.x = data.location.x - 0.4;
+    data.location.y = data.location.y + 0.4;
   } else if (data.direction === 7) {
-    data.location.x = data.location.x - 8;
+    data.location.x = data.location.x - 0.8;
   } else if (data.direction === 8) {
-    data.location.x = data.location.x - 4;
-    data.location.y = data.location.y - 4;
+    data.location.x = data.location.x - 0.4;
+    data.location.y = data.location.y - 0.4;
   }
-  $car.setAttribute('style', 'left: ' + data.location.x + 'px; top: ' + data.location.y + 'px; transform: rotate(' + data.degrees + 'deg);');
+  $car.setAttribute('style', 'left: ' + data.location.x + 'rem; top: ' + data.location.y + 'rem; transform: rotate(' + data.degrees + 'deg);');
 }
 
 var carMovingInterval;
